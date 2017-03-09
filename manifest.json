@@ -1,0 +1,30 @@
+{
+  "name": "Table Helper",
+  "description": "Highlight and extract HTML tables",
+  "version": "0.1",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "clipboardWrite",
+    "storage"
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*", "file://*/*"],
+      "css": ["content_script.css"],
+      "js": ["content_script.js", "highlight.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Highlight and extract HTML tables",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+      "content_script.css"
+  ],
+  "manifest_version": 2
+}
